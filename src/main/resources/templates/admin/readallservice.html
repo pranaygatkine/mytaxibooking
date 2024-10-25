@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Data</title>
+    <style type="text/css">
+    
+     .admin-home-link {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .admin-home-link:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    
+<a href="/admin/dashboard" class="admin-home-link">ADMIN HOME</a>
+      <h2 style="color:blue" th:text="${message}"></h2>
+    
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .table-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .table-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+    <div class="table-title">Service Information</div>
+    
+    <table>
+        <thead>
+            <tr >
+                <th>Id</th>
+                <th>Title</th>
+                <th>Discription</th>
+                <th>Image</th>
+               <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample row for data -->
+            <tr  th:each="service : ${allservice}"   >
+                <td  th:text="${service.id}" ></td>
+                <td  th:text="${service.title}" > </td>
+                <td  th:text="${service.description}" > </td>
+                <td  th:text="${service.image}"></td>
+                <td>  
+                      <a th:href="@{/admin/deleteService/{id} (id=${service.id})  }" >DELETE</a>
+                </td>
+                
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

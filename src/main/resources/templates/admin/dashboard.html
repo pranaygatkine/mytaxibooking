@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .links {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .links a {
+            display: block;
+            text-decoration: none;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            background-color: #f4f4f4;
+            color: #333;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #ddd;
+        }
+
+        .links a:active {
+            background-color: #ccc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>WELCOME TO ADMIN PANEL</h1>
+</header>
+
+<div class="container">
+    <h2 th:text="${message}"></h2>
+    
+    <ul class="links">
+        <li><a href="readAllBookings">READ ALL BOOKINGS</a></li>
+        <li><a href="readAllContacts">READ ALL CONTACTS</a></li>
+        <li><a href="readAllServices">READ ALL SERVICES</a></li>
+        <li><a href="addService">ADD SERVICES</a></li>
+        <li><a href="changeCredentials">CHANGE CREDENTIALS</a></li>
+        <li><a href="/dologout">LOGOUT</a></li>
+    </ul>
+</div>
+
+<footer>
+    <p>Admin Dashboard - 2024</p>
+</footer>
+
+</body>
+</html>
